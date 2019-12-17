@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace DogShelter.Models
 {
-    public class Dog
+    public class Cat
     {
-        public int ID { get; set; }
+        public int CatID { get; set; }
         public string Name { get; set; }
         public DateTime Dob { get; set; }
         public string Breed { get; set; }
@@ -13,6 +13,6 @@ namespace DogShelter.Models
         public string Summary { get; set; }
         public string ImageUrl { get; set; }
 
-        public ICollection<Adoption> Adoptions { get; set; }
+        public ICollection<CatAdoption> CatAdoptions { get; set; }
     }
 }

@@ -1,12 +1,10 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using DogShelter.Data;
 using DogShelter.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DogShelter.Data;
 
 namespace DogShelter.Pages.Dogs
 {
@@ -44,11 +42,12 @@ namespace DogShelter.Pages.Dogs
             CurrentFilter = searchString;
 
             IQueryable<Dog> dogsIq = from s in _context.Dogs
-                                            select s;
+                select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 dogsIq = dogsIq.Where(d => d.Name.Contains(searchString));
             }
+
             switch (sortOrder)
             {
                 case "name_desc":

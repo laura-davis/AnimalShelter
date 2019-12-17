@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Security.Policy;
- 
+
 namespace DogShelter.Models
 {
     public class User
@@ -14,7 +12,8 @@ namespace DogShelter.Models
         public string Email { get; set; }
         public string Telephone { get; set; }
         public bool IsAdmin { get; set; }
-        
+
         public ICollection<Adoption> Adoptions { get; set; }
+        public ICollection<CatAdoption> CatAdoptions { get; set; }
     }
 }

@@ -1,7 +1,6 @@
-using DogShelter.Data;
-using DogShelter.Models;
 using System;
 using System.Linq;
+using DogShelter.Models;
 
 namespace DogShelter.Data
 
@@ -12,10 +11,9 @@ namespace DogShelter.Data
         {
             context.Database.EnsureCreated();
 
-            // Look for any students.
             if (context.Dogs.Any())
             {
-                return; // DB has been seeded
+                return;
             }
 
             var dogs = new Dog[]
@@ -34,6 +32,26 @@ namespace DogShelter.Data
             foreach (Dog d in dogs)
             {
                 context.Dogs.Add(d);
+            }
+
+            context.SaveChanges();
+
+            var cats = new Cat[]
+            {
+                new Cat
+                {
+                    Name = "Peanut", Dob = DateTime.Parse("2012-12-25"), Breed = "Mixed", Sex = "f",
+                    Summary = "A cute and fluffy cat", ImageUrl = "www.gizmo.com/gizmo.jpg"
+                },
+                new Cat
+                {
+                    Name = "Peacan", Dob = DateTime.Parse("2016-02-14"), Breed = "Bengal", Sex = "f",
+                    Summary = "Even fluffier cat!", ImageUrl = "www.dexter.com/dexter.jpg"
+                }
+            };
+            foreach (Cat cat in cats)
+            {
+                context.Cats.Add(cat);
             }
 
             context.SaveChanges();
@@ -62,11 +80,33 @@ namespace DogShelter.Data
 
             var adoptions = new Adoption[]
             {
-                new Adoption { },
+                new Adoption
+                {
+                    DogID = dogs.Single(i => i.ID == 1).ID,
+                    UserID = users.Single(i => i.ID == 2).ID,
+                    AdoptionDate = DateTime.Parse("2019-12-14")
+                }
             };
-            foreach (Adoption a in adoptions)
+
+            foreach (Adoption adoption in adoptions)
             {
-                context.Adoptions.Add(a);
+                context.Adoptions.Add(adoption);
+            }
+
+            context.SaveChanges();
+
+            var catAdoptions = new CatAdoption[]
+            {
+                new CatAdoption
+                {
+                    CatID = cats.Single(i => i.CatID == 1).CatID,
+                    UserID = users.Single(i => i.ID == 1).ID,
+                    AdoptionDate = DateTime.Parse("2019-12-14")
+                }
+            };
+            foreach (CatAdoption catAdoption in catAdoptions)
+            {
+                context.CatAdoptions.Add(catAdoption);
             }
 
             context.SaveChanges();

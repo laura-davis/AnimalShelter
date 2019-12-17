@@ -1,19 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using DogShelter.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DogShelter.Data
 {
     public class ShelterContext : DbContext
     {
-        public ShelterContext (DbContextOptions<ShelterContext> options)
+        public ShelterContext(DbContextOptions<ShelterContext> options)
             : base(options)
         {
         }
-        
+
+        public DbSet<Cat> Cats { get; set; }
+        public DbSet<CatAdoption> CatAdoptions { get; set; }
         public DbSet<Adoption> Adoptions { get; set; }
         public DbSet<Dog> Dogs { get; set; }
         public DbSet<User> Users { get; set; }
@@ -23,7 +21,8 @@ namespace DogShelter.Data
             modelBuilder.Entity<Adoption>().ToTable("Adoption");
             modelBuilder.Entity<Dog>().ToTable("Dog");
             modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<Cat>().ToTable("Cat");
+            modelBuilder.Entity<CatAdoption>().ToTable("CatAdoption");
         }
-        public DbSet<DogShelter.Models.Dog> Dog { get; set; }
     }
 }

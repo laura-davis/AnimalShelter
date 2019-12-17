@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace DogShelter.Pages.Dogs
+namespace DogShelter.Pages.Cats
 {
     public class DetailsModel : PageModel
     {
@@ -16,7 +16,7 @@ namespace DogShelter.Pages.Dogs
             _context = context;
         }
 
-        public Dog Dog { get; set; }
+        public Cat Cat { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -25,12 +25,9 @@ namespace DogShelter.Pages.Dogs
                 return NotFound();
             }
 
-            Dog = await _context.Dogs
-                .Include(d => d.Adoptions)
-                .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.ID == id);
+            Cat = await _context.Cats.FirstOrDefaultAsync(m => m.CatID == id);
 
-            if (Dog == null)
+            if (Cat == null)
             {
                 return NotFound();
             }

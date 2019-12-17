@@ -1,20 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using DogShelter.Data;
+using DogShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using DogShelter.Data;
-using DogShelter.Models;
 
 namespace DogShelter.Pages.Dogs
 {
     public class DeleteModel : PageModel
     {
-        private readonly DogShelter.Data.ShelterContext _context;
+        private readonly ShelterContext _context;
 
-        public DeleteModel(DogShelter.Data.ShelterContext context)
+        public DeleteModel(ShelterContext context)
         {
             _context = context;
         }
@@ -66,9 +63,8 @@ namespace DogShelter.Pages.Dogs
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }
-            catch (DbUpdateException /* ex */)
+            catch (DbUpdateException)
             {
-                //Log the error (uncomment ex variable name and write a log.)
                 return RedirectToAction("./Delete",
                     new {id, saveChangesError = true});
             }

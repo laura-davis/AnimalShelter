@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace DogShelter.Pages.Dogs
+namespace DogShelter.Pages.Cats
 {
     public class EditModel : PageModel
     {
@@ -17,7 +17,7 @@ namespace DogShelter.Pages.Dogs
             _context = context;
         }
 
-        [BindProperty] public Dog Dog { get; set; }
+        [BindProperty] public Cat Cat { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -26,9 +26,9 @@ namespace DogShelter.Pages.Dogs
                 return NotFound();
             }
 
-            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.ID == id);
+            Cat = await _context.Cats.FirstOrDefaultAsync(m => m.CatID == id);
 
-            if (Dog == null)
+            if (Cat == null)
             {
                 return NotFound();
             }
@@ -36,32 +36,14 @@ namespace DogShelter.Pages.Dogs
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int id)
+        public async Task<IActionResult> OnPostAsync()
         {
-            var dogToUpdate = await _context.Dogs.FindAsync(id);
-
-            if (dogToUpdate == null)
-            {
-                return NotFound();
-            }
-
-            if (await TryUpdateModelAsync<Dog>(
-                dogToUpdate,
-                "dog",
-                d => d.Name, d => d.Breed, d => d.Sex, 
-                                        d => d.Summary, d => d.ImageUrl, d => d.Adoptions))
-
-            {
-                await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
-            }
-
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(Dog).State = EntityState.Modified;
+            _context.Attach(Cat).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +51,7 @@ namespace DogShelter.Pages.Dogs
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DogExists(Dog.ID))
+                if (!CatExists(Cat.CatID))
                 {
                     return NotFound();
                 }
@@ -82,9 +64,9 @@ namespace DogShelter.Pages.Dogs
             return RedirectToPage("./Index");
         }
 
-        private bool DogExists(int id)
+        private bool CatExists(int id)
         {
-            return _context.Dogs.Any(e => e.ID == id);
+            return _context.Cats.Any(e => e.CatID == id);
         }
     }
 }

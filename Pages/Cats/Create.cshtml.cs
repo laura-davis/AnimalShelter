@@ -4,7 +4,7 @@ using DogShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace DogShelter.Pages.Dogs
+namespace DogShelter.Pages.Cats
 {
     public class CreateModel : PageModel
     {
@@ -20,20 +20,16 @@ namespace DogShelter.Pages.Dogs
             return Page();
         }
 
-        [BindProperty] public Dog Dog { get; set; }
+        [BindProperty] public Cat Cat { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            var emptyDog = new Dog();
-            if (await TryUpdateModelAsync<Dog>(emptyDog, "dog",
-                d => d.Name, d => d.Breed, d => d.Sex, d => d.Summary, d => d.ImageUrl, d => d.Adoptions))
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
-                if (!ModelState.IsValid)
-                {
-                    return Page();
-                }
-
-            _context.Dogs.Add(emptyDog);
+            _context.Cats.Add(Cat);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
