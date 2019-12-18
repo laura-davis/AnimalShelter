@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - Dog Shelter</title>
+    <title >@ViewData["Title"] - Dog Shelter</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
 </head>
@@ -40,6 +40,7 @@
                 </ul>
             </div>
         </div>
+         <p   id="datetime"></p> 
     </nav>
 </header>
 <div class="container">
@@ -57,6 +58,15 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+var dt = new Date();
+document.getElementById("datetime").innerHTML = (
+    ("0"+dt.getDate()).slice(-2)) +"."+ 
+    (("0"+(dt.getMonth()+1)).slice(-2)) +"."+ 
+    (dt.getFullYear()) +" "+ 
+    (("0"+dt.getHours()).slice(-2)) +":"+ 
+    (("0"+dt.getMinutes()).slice(-2));
+</script>
 
 @RenderSection("Scripts", required: false)
 </body>
