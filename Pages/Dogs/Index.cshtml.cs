@@ -69,4 +69,4 @@ namespace DogShelter.Pages.Dogs
                 dogsIq.AsNoTracking(), pageIndex ?? 1, pageSize);
         }
     }
-} 
+}

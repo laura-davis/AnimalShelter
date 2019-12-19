@@ -48,8 +48,8 @@ namespace DogShelter.Pages.Dogs
             if (await TryUpdateModelAsync<Dog>(
                 dogToUpdate,
                 "dog",
-                d => d.Name, d => d.Breed, d => d.Sex, 
-                                        d => d.Summary, d => d.ImageUrl, d => d.Adoptions))
+                d => d.Name, d => d.Breed, d => d.Sex,
+                d => d.Summary, d => d.ImageUrl, d => d.Adoptions))
 
             {
                 await _context.SaveChangesAsync();

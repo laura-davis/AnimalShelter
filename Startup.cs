@@ -26,7 +26,7 @@ namespace DogShelter
                 options.UseSqlServer(Configuration.GetConnectionString("ShelterContext")));
             StripeConfiguration.SetApiKey(Configuration["Stripe:SecretKey"]);
         }
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
