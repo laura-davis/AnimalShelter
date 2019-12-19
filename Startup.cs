@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Stripe;
 
 namespace DogShelter
 {
@@ -23,6 +24,7 @@ namespace DogShelter
 
             services.AddDbContext<ShelterContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ShelterContext")));
+            StripeConfiguration.SetApiKey(Configuration["Stripe:SecretKey"]);
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

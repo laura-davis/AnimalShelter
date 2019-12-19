@@ -17,6 +17,11 @@
       </PackageReference>
       <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+      <PackageReference Include="Stripe.net" Version="34.6.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Pages\Payment.cs" />
     </ItemGroup>
 
 </Project>

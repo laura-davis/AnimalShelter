@@ -345,3 +345,5 @@
 /Users/sme62/IdeaProjects/DogShelter/obj/Debug/netcoreapp3.0/Razor/Pages/Cats/Details.cshtml.g.cs
 /Users/sme62/IdeaProjects/DogShelter/obj/Debug/netcoreapp3.0/Razor/Pages/Cats/Edit.cshtml.g.cs
 /Users/sme62/IdeaProjects/DogShelter/obj/Debug/netcoreapp3.0/Razor/Pages/Cats/Index.cshtml.g.cs
+/Users/sme62/IdeaProjects/DogShelter/bin/Debug/netcoreapp3.0/Stripe.net.dll
+/Users/sme62/IdeaProjects/DogShelter/obj/Debug/netcoreapp3.0/Razor/Pages/Payment.cshtml.g.cs
