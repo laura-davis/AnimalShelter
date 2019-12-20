@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DogShelter.Models
+namespace AnimalShelter.Models
 {
     public class Dog
     {
-        public int ID { get; set; }
+        public int DogID { get; set; }
 
         [Required] [Display(Name = "Name")] 
         public string Name { get; set; }

@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
-using DogShelter.Data;
-using DogShelter.Models;
+using AnimalShelter.Data;
+using AnimalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace DogShelter.Pages.Cats
+namespace AnimalShelter.Pages.Cats
 {
     public class CreateModel : PageModel
     {

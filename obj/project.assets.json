@@ -8612,19 +8612,23 @@
     ]
   },
   "packageFolders": {
-    "/Users/sme62/.nuget/packages/": {}
+    "/Users/lda49/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sme62/IdeaProjects/DogShelter/DogShelter.csproj",
-      "projectName": "DogShelter",
-      "projectPath": "/Users/sme62/IdeaProjects/DogShelter/DogShelter.csproj",
-      "packagesPath": "/Users/sme62/.nuget/packages/",
-      "outputPath": "/Users/sme62/IdeaProjects/DogShelter/obj/",
+      "projectUniqueName": "/Users/lda49/OneDrive - Sky/University/RiderProjects/DogShelter/AnimalShelter/AnimalShelter.csproj",
+      "projectName": "AnimalShelter",
+      "projectPath": "/Users/lda49/OneDrive - Sky/University/RiderProjects/DogShelter/AnimalShelter/AnimalShelter.csproj",
+      "packagesPath": "/Users/lda49/.nuget/packages/",
+      "outputPath": "/Users/lda49/OneDrive - Sky/University/RiderProjects/DogShelter/AnimalShelter/obj/",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/Users/sme62/.config/NuGet/NuGet.Config"
+        "/Users/lda49/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"

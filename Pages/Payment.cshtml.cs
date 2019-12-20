@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Stripe;
 
-namespace DogShelter.Pages
+namespace AnimalShelter.Pages
 {
     public class Payment : PageModel
     {

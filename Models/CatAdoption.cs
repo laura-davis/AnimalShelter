@@ -1,6 +1,6 @@
 using System;
 
-namespace DogShelter.Models
+namespace AnimalShelter.Models
 {
     public class CatAdoption
     {

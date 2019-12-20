@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
-using DogShelter.Data;
-using DogShelter.Models;
+using AnimalShelter.Data;
+using AnimalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace DogShelter.Pages.Dogs
+namespace AnimalShelter.Pages.Dogs
 {
     public class DeleteModel : PageModel
     {
@@ -28,7 +28,7 @@ namespace DogShelter.Pages.Dogs
 
             Dog = await _context.Dogs
                 .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.DogID == id);
 
             if (Dog == null)
             {

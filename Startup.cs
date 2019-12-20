@@ -1,4 +1,4 @@
-using DogShelter.Data;
+using AnimalShelter.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Stripe;
 
-namespace DogShelter
+namespace AnimalShelter
 {
     public class Startup
     {
@@ -24,7 +24,8 @@ namespace DogShelter
 
             services.AddDbContext<ShelterContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ShelterContext")));
-            StripeConfiguration.SetApiKey(Configuration["Stripe:SecretKey"]);
+            StripeConfiguration.ApiKey = "Stripe:SecretKey";
+           // StripeConfiguration.SetApiKey(Configuration["Stripe:SecretKey"]);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

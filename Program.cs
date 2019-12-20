@@ -1,11 +1,11 @@
 using System;
-using DogShelter.Data;
+using AnimalShelter.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace DogShelter
+namespace AnimalShelter
 {
     public class Program
     {

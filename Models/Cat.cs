@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DogShelter.Models
+namespace AnimalShelter.Models
 {
     public class Cat
     {

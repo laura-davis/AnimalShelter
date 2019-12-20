@@ -1,7 +1,7 @@
-using DogShelter.Models;
+using AnimalShelter.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DogShelter.Data
+namespace AnimalShelter.Data
 {
     public class ShelterContext : DbContext
     {

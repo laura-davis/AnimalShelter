@@ -1,15 +1,15 @@
 using System;
 using System.Linq;
-using DogShelter.Models;
+using AnimalShelter.Models;
 
-namespace DogShelter.Data
+namespace AnimalShelter.Data
 
 {
     public static class DbInitialiser
     {
         public static void Initialise(ShelterContext context)
         {
-            context.Database.EnsureCreated();
+          //  context.Database.EnsureCreated();
 
             if (context.Dogs.Any())
             {
@@ -82,7 +82,7 @@ namespace DogShelter.Data
             {
                 new Adoption
                 {
-                    DogID = dogs.Single(i => i.ID == 1).ID,
+                    DogID = dogs.Single(i => i.DogID == 1).DogID,
                     UserID = users.Single(i => i.ID == 2).ID,
                     AdoptionDate = DateTime.Parse("2019-12-14")
                 }

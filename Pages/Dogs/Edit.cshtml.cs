@@ -1,12 +1,12 @@
 using System.Linq;
 using System.Threading.Tasks;
-using DogShelter.Data;
-using DogShelter.Models;
+using AnimalShelter.Data;
+using AnimalShelter.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace DogShelter.Pages.Dogs
+namespace AnimalShelter.Pages.Dogs
 {
     public class EditModel : PageModel
     {
@@ -26,7 +26,7 @@ namespace DogShelter.Pages.Dogs
                 return NotFound();
             }
 
-            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.ID == id);
+            Dog = await _context.Dogs.FirstOrDefaultAsync(m => m.DogID == id);
 
             if (Dog == null)
             {
@@ -69,7 +69,7 @@ namespace DogShelter.Pages.Dogs
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DogExists(Dog.ID))
+                if (!DogExists(Dog.DogID))
                 {
                     return NotFound();
                 }
@@ -84,7 +84,7 @@ namespace DogShelter.Pages.Dogs
 
         private bool DogExists(int id)
         {
-            return _context.Dogs.Any(e => e.ID == id);
+            return _context.Dogs.Any(e => e.DogID == id);
         }
     }
 }
